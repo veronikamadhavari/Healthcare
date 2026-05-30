@@ -1,0 +1,69 @@
+{% extends 'hospital/base.html' %}
+
+{% block content %}
+<h2>Patient Dashboard</h2>
+
+<div class="card">
+    <h3>My Appointments</h3>
+
+    <table>
+        <tr>
+            <th>Patient</th>
+            <th>Doctor</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Status</th>
+        </tr>
+
+        {% for appointment in appointments %}
+        <tr>
+            <td>{{ appointment.patient.name }}</td>
+            <td>Dr. {{ appointment.doctor.name }}</td>
+            <td>{{ appointment.appointment_date }}</td>
+            <td>{{ appointment.appointment_time }}</td>
+            <td>{{ appointment.status }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">No appointments found.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="card">
+    <h3>Medical History and Prescriptions</h3>
+
+    <table>
+        <tr>
+            <th>Patient</th>
+            <th>Diagnosis</th>
+            <th>Prescription</th>
+            <th>Visit Date</th>
+        </tr>
+
+        {% for record in records %}
+        <tr>
+            <td>{{ record.patient.name }}</td>
+            <td>{{ record.diagnosis }}</td>
+            <td>{{ record.prescription }}</td>
+            <td>{{ record.visit_date }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No medical records found.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="card">
+    <h3>Notifications</h3>
+
+    {% for notification in notifications %}
+        <p>{{ notification.message }} - {{ notification.created_at }}</p>
+    {% empty %}
+        <p>No notifications found.</p>
+    {% endfor %}
+</div>
+{% endblock %}

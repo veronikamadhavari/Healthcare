@@ -1,0 +1,30 @@
+{% extends 'hospital/base.html' %}
+
+{% block content %}
+<h2>Healthcare Appointment & Records System</h2>
+
+<p>
+    This system helps patients register, search doctors, book appointments,
+    track appointment status, view medical history, and access prescription records.
+</p>
+
+<div class="card">
+    <h3>Total Patients: {{ patients }}</h3>
+</div>
+
+<div class="card">
+    <h3>Total Doctors: {{ doctors }}</h3>
+</div>
+
+<div class="card">
+    <h3>Total Appointments: {{ appointments }}</h3>
+</div>
+
+<div class="card">
+    <h3>Total Medical Records: {{ records }}</h3>
+</div>
+
+<div class="card">
+    <h3>Unread Notifications: {{ notifications }}</h3>
+</div>
+{% endblock %}

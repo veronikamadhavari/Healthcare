@@ -1,0 +1,35 @@
+{% extends 'hospital/base.html' %}
+
+{% block content %}
+<h2>Patient Registration</h2>
+
+<a class="btn" href="{% url 'add_patient' %}">Register Patient</a>
+
+<br><br>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Blood Group</th>
+        <th>Phone</th>
+        <th>Email</th>
+    </tr>
+
+    {% for patient in patients %}
+    <tr>
+        <td>{{ patient.name }}</td>
+        <td>{{ patient.age }}</td>
+        <td>{{ patient.gender }}</td>
+        <td>{{ patient.blood_group }}</td>
+        <td>{{ patient.phone }}</td>
+        <td>{{ patient.email }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="6">No patients found.</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

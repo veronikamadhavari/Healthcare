@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Healthcare Appointment System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #fff5f8;
+            color: #3b2430;
+        }
+
+        header {
+            background: #f8a8c4;
+            color: white;
+            padding: 18px 40px;
+        }
+
+        nav {
+            background: #f472a6;
+            padding: 12px 40px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 30px 40px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #fbcfe8;
+            box-shadow: 0 2px 8px rgba(244, 114, 166, 0.12);
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ec4899;
+            color: white;
+            padding: 10px 14px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            background: white;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #fbcfe8;
+        }
+
+        th {
+            background: #fce7f3;
+            color: #831843;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 9px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #f9a8d4;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Healthcare Appointment and Patient Records</h1>
+    </header>
+
+    <nav>
+        
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'patient_dashboard' %}">Patient Dashboard</a>
+    <a href="{% url 'doctor_dashboard' %}">Doctor Dashboard</a>
+    <a href="{% url 'patient_list' %}">Patients</a>
+    <a href="{% url 'doctor_list' %}">Doctors</a>
+    <a href="{% url 'appointment_list' %}">Appointments</a>
+    <a href="{% url 'record_list' %}">Records</a>
+    <a href="/admin/">Admin</a>
+
+    </nav>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
